@@ -51,14 +51,13 @@ export default function Game() {
         default:
           setScore(score + 1);
       }
-      //target.classList.add('correctAnswer');
       setHits(hits + 1);
     }
     goToNewQuestion();
   };
 
   useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=3")
+    fetch("https://opentdb.com/api.php?amount=10")
       .then((data) => data.json())
       .then((data) => {
         const { results } = data;
@@ -76,8 +75,6 @@ export default function Game() {
   if (loading) return <Loading/>
 
   if (index === apiResponse.length - 1) {
-    setIndex(0);
-    setTimer(30);
     return <Results 
       score={score} 
       hits={hits}
