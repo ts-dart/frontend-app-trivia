@@ -26,7 +26,7 @@ export default function Game() {
   };
 
   const shuffleArray = (arr:string[]) => {
-    if (timer >= 29.5) {
+    if (timer >= 29) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -82,21 +82,27 @@ export default function Game() {
     />
   }
 
+  console.log(apiResponse[index].correct_answer);
   return(
-    <div>
-      <h2>{timer}</h2>
-      <h2>{score}</h2>
-      <h1>{apiResponse[index].question}</h1>
+    <div className='center-div' id='menu-game'>
+      <div id='menu-indexes'>
+        <h2>Timer: {timer}</h2>
+        <h2>Score: {score}</h2>
+      </div>
+      <h1>{apiResponse[index].question.replace(/&quot;/g, '').replace(/&#039;/g, '')}</h1>
       <p>{apiResponse[index].category}</p>
-      <p>{apiResponse[index].difficulty}</p>
-      {shuffleArray([apiResponse[index].correct_answer,
-        ...apiResponse[index].incorrect_answers]).map((response, index) => (
-          <button
-            key={index} 
-            onClick={({target}) => checkAnswer(target as HTMLButtonElement)}
-          >{response}</button>
-        ))}
-      <p>{apiResponse[index].correct_answer}</p>
+      <p>Dificuldade: {apiResponse[index].difficulty}</p>
+      <div id='buttons-selector'>
+        {shuffleArray([apiResponse[index].correct_answer,
+          ...apiResponse[index].incorrect_answers]).map((response, index) => (
+            <button
+              key={index} 
+              onClick={({target}) => checkAnswer(target as HTMLButtonElement)}
+            >
+              {response.replace(/&quot;/g, '').replace(/&#039;/g, '')}
+            </button>
+          ))}
+      </div>
     </div>
   );
 }

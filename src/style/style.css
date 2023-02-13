@@ -1,9 +1,41 @@
 body {
     background-color: #121214;
     font-family: 'RobotoMono';
+    color: #34CC94;
 }
 
 @font-face {
     font-family: 'RobotoMono';
     src: url(../assets/RobotoMono-VariableFont_wght.ttf);
+}
+
+button {
+    background-color: #121214;
+    border: solid 3px #34CC94;
+    color: #34CC94;
+    font-weight: bolder;
+    font-family: 'RobotoMono';
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+button:hover {
+    background-color: #34CC94;
+    border: solid 3px #34CC94;
+    color: #121214;
+    font-weight: bolder;
+    font-family: 'RobotoMono';
+    padding: 10px;
+}
+
+.center-div {
+    margin: 100px auto;
+    width: 60%;
+    font-size: 22px;
+}
+
+#div-loading {
+    margin: 150px auto;
+    width: 10%;
 }

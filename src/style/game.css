@@ -1,4 +1,30 @@
 .correctAnswer {
     border: solid 1px rgb(129, 212, 4);
-    background-color: brown;
+}
+
+#menu-game h1{
+    font-size: 32px;
+    animation: appear 1s linear;
+}
+
+#menu-indexes {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#buttons-selector {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    animation: appear 2s linear;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
