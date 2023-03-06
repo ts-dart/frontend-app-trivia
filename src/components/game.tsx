@@ -57,11 +57,10 @@ export default function Game() {
   };
 
   useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=10")
+    fetch("https://backend-app-trivia.vercel.app/")
       .then((data) => data.json())
       .then((data) => {
-        const { results } = data;
-        setApiResponse(results);
+        setApiResponse(data);
         setLoading(false);
       });
   }, []);
