@@ -39,13 +39,13 @@ export default function Game() {
   const checkAnswer = (target:HTMLButtonElement) => {
     if (target.textContent === apiResponse[index].correct_answer) {
       switch (apiResponse[index].difficulty) {
-        case 'easy':
+        case 'fácil':
           setScore(score + 1);
           break
-        case 'medium':
+        case 'médio':
           setScore(score + 2);
           break
-        case 'hard':
+        case 'difícil':
           setScore(score + 3);
           break
         default:
@@ -85,8 +85,8 @@ export default function Game() {
   return(
     <div className='center-div' id='menu-game'>
       <div id='menu-indexes'>
-        <h2>Timer: {timer}</h2>
-        <h2>Score: {score}</h2>
+        <h2>Tempo: {timer}</h2>
+        <h2>Pontos: {score}</h2>
       </div>
       <h1>{apiResponse[index].question.replace(/&quot;/g, '').replace(/&#039;/g, '')}</h1>
       <p>{apiResponse[index].category}</p>
