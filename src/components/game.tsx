@@ -26,7 +26,7 @@ export default function Game() {
 
   const checkTimer = () => {
     if (!timer) goToNewQuestion();
-    if (timer === 29) FEEDBACK.classList.remove('incorrectAnswer', 'correctAnswer');
+    if (timer === 29.5) FEEDBACK.classList.remove('incorrectAnswer', 'correctAnswer');
   };
 
   const shuffleArray = (arr:string[]) => {
