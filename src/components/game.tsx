@@ -6,6 +6,9 @@ import Results from './results';
 
 let SHUFFLED_LIST = [''];
 
+const FEEDBACK = document.createElement('div');
+document.body.appendChild(FEEDBACK);
+
 export default function Game() {
   const { apiResponse, setApiResponse } = useContext(Context);
   const [timer, setTimer] = useState(30);
@@ -23,6 +26,7 @@ export default function Game() {
 
   const checkTimer = () => {
     if (!timer) goToNewQuestion();
+    if (timer === 29) FEEDBACK.classList.remove('incorrectAnswer', 'correctAnswer');
   };
 
   const shuffleArray = (arr:string[]) => {
@@ -52,6 +56,11 @@ export default function Game() {
           setScore(score + 1);
       }
       setHits(hits + 1);
+      FEEDBACK.classList.add('correctAnswer');
+      FEEDBACK.classList.remove('incorrectAnswer');
+    } else {
+      FEEDBACK.classList.add('incorrectAnswer');
+      FEEDBACK.classList.remove('correctAnswer');
     }
     goToNewQuestion();
   };
